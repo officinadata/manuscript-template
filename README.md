@@ -1,3 +1,6 @@
+Got this from [Tim's Team](https://github.com/PoisotLab/manuscript-template).
+Will develop and localize for the DaRe Officina in the coming days.
+
 ## How to use the manuscript template?
 
 - Click on the "Use this template" button
