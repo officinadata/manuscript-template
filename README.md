@@ -1,11 +1,10 @@
-This template uses `pandoc` (and a few additional python glue scripts) to
+This template uses `pandoc` (and a few additional *Julia* glue scripts) to
 facilitate the production of scientific articles using a standard markdown file.
 The objective is to ensure that standard markdown (with the important exception
 of the `pandoc-crossref` citation markup) will be rendered into an interactive
 website (which allows collaborative annotations with the `hypothes.is`
 platform), a "draft" style PDF (double-spaced, numbered lines, figures at the
-end), and a "preprint" style PDF (with slightly more reader-friendly
-pagination).
+end), and a "preprint" style PDF (with more reader-friendly pagination).
 
 The core bit of configuration is the `metadata.json` file, which handles
 information about authorship, affiliations, the abstract, keywords, etc. All
@@ -134,10 +133,7 @@ first two non-stop words). It must be set in the Better BibTeX preferences as
 (you might need to remove the line changes):
 
 ~~~
-[auth:fold]
-[year]
-[title:fold:nopunctordash:skipwords:lower:select=1,1:substring=1,3:capitalize]
-[title:fold:nopunctordash:skipwords:lower:select=2,2:substring=1,3:capitalize]
+auth.fold.fold + year + title.fold.nopunctordash.skipwords.lower.select(1,1).capitalize()
 ~~~
 
 It is a good idea to configure Better BibTeX to auto-export on change, and to
@@ -256,14 +252,13 @@ the threshold $\rho$ estimated for the European metaweb also applies. We use
 this information to produce one random Canadian metaweb, $N =
 \hat{\mathscr{L}}$$\hat{\mathscr{R}}' \ge \rho$.
 
-Because the intervals around some trait values can be broad [in fact, probably
-broader than what they would actually be, see *e.g.* @Garland1999IntPhy], we
-repeat the above process $2\times 10^5$ times, which results in a probabilistic
-metaweb $P$, where the probability of an interaction (here conveying our degree
-of trust that it exists given the inferred trait distributions) is given by the
-number of times where it appears across all random draws $N$, divided by the
-number of samples. An interaction with $P_{i,j} = 1$ means that these two
-species were predicted to interact in all $2\times 10^5$ random draws, etc..
-
+Because the intervals around some trait values can be broad (in fact, probably
+broader than what they would actually be), we repeat the above process $2\times
+10^5$ times, which results in a probabilistic metaweb $P$, where the probability
+of an interaction (here conveying our degree of trust that it exists given the
+inferred trait distributions) is given by the number of times where it appears
+across all random draws $N$, divided by the number of samples. An interaction
+with $P_{i,j} = 1$ means that these two species were predicted to interact in
+all $2\times 10^5$ random draws, etc..
 
 # References
